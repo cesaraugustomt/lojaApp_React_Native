@@ -20,6 +20,7 @@
     "pre-commit": "^1.2.2",
     "react": "18.2.0",
     "react-native": "0.72.4",
+    "react-native-linear-gradient": "^2.8.3",
     "styled-components": "^6.0.7"
   },
   "devDependencies": {
