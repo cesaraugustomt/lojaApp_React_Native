@@ -3,6 +3,7 @@ export const grayTheme = {
   gray100: '#929898',
 };
 export const neutralTheme = {
+  black: '#262824',
   white: '#ffffff',
 };
 
