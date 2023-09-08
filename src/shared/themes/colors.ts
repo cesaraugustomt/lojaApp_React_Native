@@ -18,3 +18,7 @@ export const pinkTheme = {
 export const purpleTheme = {
   purple80: '#512C85',
 };
+
+export const orangeTheme = {
+  orange80: '#E7774D',
+};
