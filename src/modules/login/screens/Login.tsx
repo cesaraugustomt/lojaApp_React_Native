@@ -2,9 +2,8 @@ import { View } from 'react-native';
 
 import Button from '../../../shared/components/button/Button';
 import Input from '../../../shared/components/input/Input';
-import { Icon } from '../../../shared/icon/Icon';
 import { theme } from '../../../shared/themes/theme';
-import { ContainerLogin } from '../styles/login.style';
+import { ContainerLogin, ImageLogo } from '../styles/login.style';
 
 const Login = () => {
   const handleOnPress = () => {
@@ -14,7 +13,7 @@ const Login = () => {
   return (
     <View>
       <ContainerLogin>
-        <Icon name="home3" color="blue" size={44} />
+        <ImageLogo resizeMode="center" source={require('../../../assets/images/logo.png')} />
         <Input margin="0px 0px 8px 0px" placeholder="Digite seu e-mail" title="Email:" />
         <Input secureTextEntry placeholder="Digite sua senha" title="Senha:" />
         <Button
