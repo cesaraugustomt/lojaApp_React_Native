@@ -18,7 +18,7 @@ const Login = () => {
         <Input margin="0px 0px 8px 0px" placeholder="Digite seu e-mail" title="Email:" />
         <Input secureTextEntry placeholder="Digite sua senha" title="Senha:" />
         <Button
-          type={theme.buttons.buttonsTheme.primary}
+          type={theme.buttons.buttonsTheme.secondary}
           margin="16px"
           title="ENTRAR"
           onPress={handleOnPress}
