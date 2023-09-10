@@ -1,28 +1,45 @@
-import axios from 'axios';
 import { View } from 'react-native';
 
 import Button from '../../../shared/components/button/Button';
 import Input from '../../../shared/components/input/Input';
 import { theme } from '../../../shared/themes/theme';
+import { useLogin } from '../hooks/useLogin';
 import { ContainerLogin, ImageLogo } from '../styles/login.style';
 
 const Login = () => {
-  const handleOnPress = async () => {
-    console.log('clicou');
-
-    const returnDB = await axios.get('http://192.168.221.2:8080/correios/01029-010');
-
-    console.log('returnDB', returnDB.data);
-  };
+  const {
+    email,
+    password,
+    loading,
+    errorMessage,
+    handleOnPress,
+    handleOnChangeEmail,
+    handleOnChangePassword,
+  } = useLogin();
 
   return (
     <View>
       <ContainerLogin>
         <ImageLogo resizeMode="center" source={require('../../../assets/images/logo.png')} />
-        <Input margin="0px 0px 8px 0px" placeholder="Digite seu e-mail" title="Email:" />
-        <Input secureTextEntry placeholder="Digite sua senha" title="Senha:" />
+        <Input
+          value={email}
+          errorMessage={errorMessage}
+          margin="0px 0px 8px 0px"
+          placeholder="Digite seu e-mail"
+          title="Email:"
+          onChange={handleOnChangeEmail}
+        />
+        <Input
+          value={password}
+          errorMessage={errorMessage}
+          secureTextEntry
+          placeholder="Digite sua senha"
+          title="Senha:"
+          onChange={handleOnChangePassword}
+        />
         <Button
-          type={theme.buttons.buttonsTheme.secondary}
+          type={theme.buttons.buttonsTheme.primary}
+          loading={loading}
           margin="16px"
           title="ENTRAR"
           onPress={handleOnPress}
