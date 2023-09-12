@@ -1,14 +1,14 @@
 import { useState } from 'react';
 
+import { useUserReducer } from '../../config/store/reducers/userReducer/useUserReducer';
 import { connectionApiPost } from '../functions/connection/connectionAPI';
 import { RequestLogin } from '../types/requestLogin';
 import { ReturnLogin } from '../types/requestLogin';
-import { UserType } from '../types/userType';
 
 export const useRequest = () => {
+  const { setUser } = useUserReducer();
   const [loading, setLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>('');
-  const [user, setUser] = useState<UserType>();
 
   const authRequest = async (body: RequestLogin) => {
     setLoading(true);
@@ -24,7 +24,6 @@ export const useRequest = () => {
 
   return {
     loading,
-    user,
     errorMessage,
     authRequest,
     setErrorMessage,
