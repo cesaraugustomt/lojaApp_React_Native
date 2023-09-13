@@ -3,6 +3,7 @@ import { NavigationProp, ParamListBase } from '@react-navigation/native';
 import { AUTHORIZATION_KEY } from '../../constants/authorizationConstants';
 import { getItemStorage, removeItemStorage, setItemStorage } from '../storageProxy';
 import { MenuUrl } from './../../enums/MenuUrl.enum';
+
 export const unsetAuthorizationToken = () => removeItemStorage(AUTHORIZATION_KEY);
 
 export const setAuthorizationToken = async (token: string) =>
