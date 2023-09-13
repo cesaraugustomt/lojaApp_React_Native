@@ -7,6 +7,7 @@ import { connectionApiPost } from '../functions/connection/connectionAPI';
 import { RequestLogin } from '../types/requestLogin';
 import { ReturnLogin } from '../types/requestLogin';
 import { useGlobalReducer } from './../../config/store/reducers/globalReducer/useGlobalReducer';
+import { setAuthorizationToken } from './../functions/connection/auth';
 
 export const useRequest = () => {
   const { reset } = useNavigation<NavigationProp<ParamListBase>>();
@@ -19,6 +20,7 @@ export const useRequest = () => {
     setLoading(true);
     await connectionApiPost<ReturnLogin>('http://192.168.221.2:8080/auth', body)
       .then((result) => {
+        setAuthorizationToken(result.accessToken);
         setUser(result.user);
         reset({
           index: 0,
