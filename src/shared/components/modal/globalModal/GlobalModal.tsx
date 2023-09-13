@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { useGlobalReducer } from '../../../../config/store/reducers/globalReducer/useGlobalReducer';
 import Modal from '../Modal';
 

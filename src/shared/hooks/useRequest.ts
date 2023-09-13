@@ -2,13 +2,14 @@ import { NavigationProp, ParamListBase, useNavigation } from '@react-navigation/
 import { useState } from 'react';
 
 import { useUserReducer } from '../../config/store/reducers/userReducer/useUserReducer';
+import { MenuUrl } from '../enums/MenuUrl.enum';
 import { connectionApiPost } from '../functions/connection/connectionAPI';
 import { RequestLogin } from '../types/requestLogin';
 import { ReturnLogin } from '../types/requestLogin';
 import { useGlobalReducer } from './../../config/store/reducers/globalReducer/useGlobalReducer';
 
 export const useRequest = () => {
-  const { navigate } = useNavigation<NavigationProp<ParamListBase>>();
+  const { reset } = useNavigation<NavigationProp<ParamListBase>>();
   const { setUser } = useUserReducer();
   const { setModal } = useGlobalReducer();
   const [loading, setLoading] = useState<boolean>(false);
@@ -19,7 +20,10 @@ export const useRequest = () => {
     await connectionApiPost<ReturnLogin>('http://192.168.221.2:8080/auth', body)
       .then((result) => {
         setUser(result.user);
-        navigate('Home');
+        reset({
+          index: 0,
+          routes: [{ name: MenuUrl.HOME }],
+        });
       })
       .catch(() => {
         setModal({
