@@ -7,6 +7,7 @@ import { URL_USER } from './../../../shared/constants/urls';
 import { MenuUrl } from './../../../shared/enums/MenuUrl.enum';
 import { MethodEnum } from './../../../shared/enums/methods.enum';
 import { validateCpf } from './../../../shared/functions/cpf';
+import { validateEmail } from './../../../shared/functions/email';
 import { validatePhone } from './../../../shared/functions/phone';
 import { CreateUserType } from './../../../shared/types/createUserType';
 
@@ -27,7 +28,7 @@ export const useCreateUser = () => {
     if (
       createUser.name !== '' &&
       validatePhone(createUser.phone) &&
-      createUser.email !== '' &&
+      validateEmail(createUser.email) &&
       validateCpf(createUser.cpf) &&
       createUser.password !== '' &&
       createUser.password === createUser.confirmPassword
