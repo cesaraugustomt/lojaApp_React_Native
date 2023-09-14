@@ -44,6 +44,7 @@ const CreateUser = () => {
         margin="0px 0px 16px 0px"
         placeholder="digite"
         title="Senha:"
+        secureTextEntry
       />
       <Input
         value={createUser.confirmPassword}
@@ -51,6 +52,7 @@ const CreateUser = () => {
         margin="0px 0px 16px 0px"
         placeholder="digite"
         title="Confirmar Senha:"
+        secureTextEntry
       />
       <Button
         disabled={disabled}
