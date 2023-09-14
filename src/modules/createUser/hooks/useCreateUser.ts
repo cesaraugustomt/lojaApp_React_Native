@@ -7,6 +7,7 @@ import { URL_USER } from './../../../shared/constants/urls';
 import { MenuUrl } from './../../../shared/enums/MenuUrl.enum';
 import { MethodEnum } from './../../../shared/enums/methods.enum';
 import { validateCpf } from './../../../shared/functions/cpf';
+import { validatePhone } from './../../../shared/functions/phone';
 import { CreateUserType } from './../../../shared/types/createUserType';
 
 export const useCreateUser = () => {
@@ -25,7 +26,7 @@ export const useCreateUser = () => {
   useEffect(() => {
     if (
       createUser.name !== '' &&
-      createUser.phone !== '' &&
+      validatePhone(createUser.phone) &&
       createUser.email !== '' &&
       validateCpf(createUser.cpf) &&
       createUser.password !== '' &&
