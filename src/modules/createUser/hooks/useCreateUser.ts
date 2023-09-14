@@ -6,8 +6,7 @@ import { useRequest } from '../../../shared/hooks/useRequest';
 import { URL_USER } from './../../../shared/constants/urls';
 import { MenuUrl } from './../../../shared/enums/MenuUrl.enum';
 import { MethodEnum } from './../../../shared/enums/methods.enum';
-import { insertMaskInCpf } from './../../../shared/functions/cpf';
-import { insertMaskInPhone } from './../../../shared/functions/phone';
+import { validateCpf } from './../../../shared/functions/cpf';
 import { CreateUserType } from './../../../shared/types/createUserType';
 
 export const useCreateUser = () => {
@@ -28,7 +27,7 @@ export const useCreateUser = () => {
       createUser.name !== '' &&
       createUser.phone !== '' &&
       createUser.email !== '' &&
-      createUser.cpf !== '' &&
+      validateCpf(createUser.cpf) &&
       createUser.password !== '' &&
       createUser.password === createUser.confirmPassword
     ) {
